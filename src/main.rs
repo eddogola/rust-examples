@@ -1,16 +1,14 @@
 fn main() {
     println!("Hello, world!");
 
-    let v = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let v = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     println!("The average of {:?} is {}", v, average(&v));
 }
 
 // given a list of integers, use a vector and return the mean
-fn average(numbers: &Vec<i32>) -> f64 {
-    let mut sum = 0f64;
-    for num in numbers {
-        sum += *num as f64;
-    }
+fn average(numbers: &[i32]) -> f64 {
+    let sum: i32 = numbers.iter().sum();
 
-    sum / (numbers.len() as f64)
+    sum as f64 / numbers.len() as f64
 }
+
